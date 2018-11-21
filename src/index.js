@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Homepage from './Pages/Homepage';
+import News from './Pages/News';
+import Weather from './Pages/Weather';
+
+
+
+
+
+
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+<BrowserRouter>
+<Switch>
+<Route exact path='/' component={Homepage}/>
+<Route path='/News' component={News}/>
+<Route path='/Weather' component={Weather}/>
+</Switch>
+</BrowserRouter>,
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+document.getElementById('root')
+);
+
